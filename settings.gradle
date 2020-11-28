@@ -1,0 +1,3 @@
+rootProject.name = 'deserialization-with-visitor-pattern'
+include 'producer'
+include 'consumer'

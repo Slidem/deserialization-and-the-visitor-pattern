@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  producer:
+    build: ./producer/
+    environment:
+      - RABBIT_MQ_HOST=rabbit
+    ports:
+      - "8080:8080"
+    depends_on:
+      rabbit:
+        condition: service_healthy
+  consumer:
+    build: ./consumer/
+    environment:
+      - RABBIT_MQ_HOST=rabbit
+    depends_on:
+      rabbit:
+        condition: service_healthy
+  rabbit:
+    image: rabbitmq:management
+    environment:
+        - HOSTNAME=rabbit
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 15s
+      retries: 3

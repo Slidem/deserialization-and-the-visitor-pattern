@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    host: ${RABBIT_MQ_HOST:localhost}
+    port: ${RABBIT_MQ_PORT:5672}
+  jackson:
+    deserialization:
+      READ_UNKNOWN_ENUM_VALUES_USING_DEFAULT_VALUE: true
+
+
+message:
+  exchangeName: "exampleExchange"
+  queueName: "exampleQueue"
+  isExampleQueueDurable: false
