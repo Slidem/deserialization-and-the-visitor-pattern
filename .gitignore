@@ -3,6 +3,7 @@
 build/
 
 # IntelliJ IDEA
+.DS_Store
 .idea/
 *.iml
 *.iws

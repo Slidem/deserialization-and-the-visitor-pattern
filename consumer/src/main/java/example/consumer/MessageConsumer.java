@@ -38,5 +38,4 @@ public class MessageConsumer {
             logger.error("Could not read message from queue.", e);
         }
     }
-
 }
